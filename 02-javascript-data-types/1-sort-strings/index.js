@@ -8,5 +8,3 @@ export function sortStrings(arr, param = 'asc') {
   const collator = new Intl.Collator('ru', { caseFirst: 'upper' });
   return arr.slice().sort((a, b) => collator.compare(a, b) * (param === 'desc' ? -1 : 1));
 }
-
-
