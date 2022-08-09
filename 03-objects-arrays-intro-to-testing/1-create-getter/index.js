@@ -10,15 +10,18 @@ export function createGetter(path) {
     if (!Object.keys(obj).length) {
       return undefined;
     }
-    switch (items.length) {
-    case 1:
-      return obj[items[0]];
-    case 2:
-      return obj[items[0]][items[1]];
-    case 3:
-      return obj[items[0]][items[1]][items[2]];
-    default:
-      return undefined;
+    function getItem(obj, path) {
+      return obj[path];
     }
+
+    let temp = undefined;
+    for (const item of items) {
+      if (temp === undefined) {
+        temp = getItem(obj, item);
+      } else {
+        temp = getItem(temp, item);
+      }
+    }
+    return temp;
   };
 }
