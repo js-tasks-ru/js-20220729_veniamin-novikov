@@ -8,9 +8,9 @@ export function createGetter(path) {
 
   return obj => {
     if (!Object.keys(obj).length) {
-      return undefined;
+      return;
     }
-    let temp = undefined;
+    let temp;
     for (const item of items) {
       if (temp === undefined) {
         temp = obj[item];
