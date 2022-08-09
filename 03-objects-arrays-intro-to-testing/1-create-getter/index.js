@@ -10,16 +10,12 @@ export function createGetter(path) {
     if (!Object.keys(obj).length) {
       return undefined;
     }
-    function getItem(obj, path) {
-      return obj[path];
-    }
-
     let temp = undefined;
     for (const item of items) {
       if (temp === undefined) {
-        temp = getItem(obj, item);
+        temp = obj[item];
       } else {
-        temp = getItem(temp, item);
+        temp = temp[item];
       }
     }
     return temp;
