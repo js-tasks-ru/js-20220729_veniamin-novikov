@@ -12,5 +12,13 @@ export function invertObj(obj) {
       }
     });
     return result;
+/*
+export function invertObj(obj) {
+  if (obj) {
+    return Object.entries(obj).reduce((accum, [key, value]) => {
+      accum[value] = key;
+      return accum;
+    }, {});
   }
+  */
 }
